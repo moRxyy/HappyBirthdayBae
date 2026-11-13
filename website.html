@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Bae 💗</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #dff6ff;
+        }
+
+      nav {
+    background: skyblue;
+    width: 100%;
+    min-height: 65px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px 35px;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-size: clamp(14px, 2vw, 20px);
+        font-weight: bold;
+        padding: 8px;
+        transition: 0.3s;
+    }
+
+    nav a:hover {
+        color: #287eaf;
+    }
+        
+
+        .music-bar {
+            background: white;
+            padding: 10px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        audio {
+            width: min(350px, 95%);
+        }
+
+        iframe {
+            width: 100%;
+            height: calc(100vh - 130px);
+            border: none;
+            display: block;
+        }
+
+        @media screen and (max-width: 600px) {
+    nav {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+        padding: 10px;
+    }
+
+    nav a {
+        text-align: center;
+        font-size: 14px;
+        padding: 10px 3px;
+    }
+
+    iframe {
+        width: 100%;
+        height: calc(100dvh - 150px);
+    }
+}
+    </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="HOME.html" target="contentFrame">HOME</a>
+    <a href="MEMORIES.html" target="contentFrame">MEMORIES</a>
+    <a href="SONG.html" target="contentFrame">SONG</a>
+    <a href="LETTER.html" target="contentFrame">LETTER</a>
+    <a href="SURPRISES.html" target="contentFrame">SURPRISE</a>
+</nav>
+
+    
+<div class="music-bar">
+
+    <audio id="bgMusic" autoplay loop>
+         <source src="music/Clairo - Slow Dance.mp3" type="audio/mpeg">
+    </audio>
+
+</div>
+
+<script>
+    const music = document.getElementById("bgMusic");
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.get("play") === "1") {
+        music.play().catch(() => {
+            console.log("Please press play to start the music.");
+        });
+    }
+</script>
+
+
+    <iframe src="HOME.html"
+            name="contentFrame"
+            title="Birthday website">
+    </iframe>
+
+</body>
+</html>
